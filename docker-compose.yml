@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   springboot:
-    image: dockerhandson/spring-boot-mongo:latest
+    image: jayakar15/spring-mongo-docker:8
     restart: always # This will be ignored if we deploy in docker swarm
     environment:
     - MONGO_DB_HOSTNAME=mongo
@@ -38,8 +38,10 @@ services:
     
 volumes:
   mongodb:
-    external: true
+    driver: local 
+    #external: true
     
 networks:
   springappnetwork:
-    external: true
+    driver: bridge
+    #external: true
